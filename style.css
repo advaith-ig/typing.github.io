@@ -56,7 +56,7 @@ body{
 .wrapper{
   width: 900px;
   margin-top: 50px;
-  padding: 10px;
+  padding: 10px;  
   background: #07011b;
   border-radius: 20px;
   box-shadow: 0 10px 15px rgba(0,0,0,0.05);
@@ -88,7 +88,7 @@ body{
 }
 .typing-text p{
   font-size: 28px;
-  text-align: justify;
+  text-align: left;
   letter-spacing: 2px;
 }
 .typing-text p span{
@@ -102,18 +102,30 @@ body{
 }
 .typing-text p span.incorrect{
   color: #ff0008;
-  background-color: #ff000025;
+  /*background-color: #ff000025;*/
   text-shadow: 
   0 0 1px #ea469b, 
   0 0 1px #ff008c;
   border-radius: 4px;
 }
-.typing-text p span.active{
-  border-left: .15em solid #cbfff7;
-  
-  animation: typing 1s, cursor .5s step-end infinite alternate;
-
+.typing-text p span.incorrect-space {
+  background-color: #ff000032;
+  text-shadow: 0 0 1px #ea469b, 0 0 1px #ff008c;
+  border-radius: 4px;
 }
+.typing-text p span.active {
+  border-left: .15em solid #cbfff7;
+}
+
+@keyframes cursor-move {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
 .typing-text p span.active::before{
   position: relative;
   content: "";
@@ -127,12 +139,6 @@ body{
   animation: ease-in-out;
   transition: 1s ease-in-out;
 }
-@keyframes cursor{
-  50% { 
-    border-color: transparent; 
-  }
-}
-
 
 .content-box .tryagain:active{
   transform: scale(0.97);
